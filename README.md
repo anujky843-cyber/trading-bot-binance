@@ -1,44 +1,58 @@
 # Binance Futures Trading Bot
 
-A Python-based Binance Futures Trading Bot that securely connects to the Binance Futures API, validates user input, and places market orders through a simple command-line interface.
+A Python-based Binance Futures Trading Bot that connects to the Binance Futures Testnet/API and allows users to place **MARKET** and **LIMIT** orders through a command-line interface.
 
-## 🚀 Features
+---
 
-* 🔐 Secure Binance Futures API integration
-* 📈 Place Buy and Sell Market Orders
-* ✅ Input validation for trading parameters
-* 📝 Centralized logging for debugging
-* ⚡ Simple and easy-to-use CLI
-* 🧩 Modular project structure for easy maintenance
+# Features
 
-## 📂 Project Structure
+* Connects to Binance Futures API
+* Place MARKET orders
+* Place LIMIT orders
+* Input validation
+* Error handling and logging
+* Modular Python code structure
+
+---
+
+# Project Structure
 
 ```text
-trading_bot/
-│── bot/
+trading-bot-binance/
+│
+├── bot/
 │   ├── __init__.py
 │   ├── client.py
 │   ├── logging_config.py
 │   ├── orders.py
 │   └── validators.py
 │
-│── cli.py
-│── requirements.txt
-│── test_connection.py
-│── test_order_debug.py
-│── README.md
-│── .gitignore
+├── cli.py
+├── test_connection.py
+├── test_order_debug.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-## 🛠️ Technologies Used
+---
 
-* Python 3.x
-* Binance Futures API
-* python-binance
-* Logging
-* Virtual Environment (venv)
+# Requirements
 
-## 📦 Installation
+* Python 3.10 or newer
+* Binance Account
+* Binance API Key
+* Binance API Secret
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Setup
 
 Clone the repository:
 
@@ -54,21 +68,17 @@ cd trading-bot-binance
 
 Create a virtual environment:
 
-```bash
-python -m venv venv
-```
-
-Activate the virtual environment:
-
 ### Windows
 
 ```bash
+python -m venv venv
 venv\Scripts\activate
 ```
 
-### Linux / macOS
+### Linux/macOS
 
 ```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
@@ -78,60 +88,117 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-## ⚙️ Configuration
-
-Create a `.env` file in the project root and add your Binance API credentials:
+Create a `.env` file:
 
 ```env
-BINANCE_API_KEY=your_api_key
-BINANCE_API_SECRET=your_api_secret
+BINANCE_API_KEY=YOUR_API_KEY
+BINANCE_API_SECRET=YOUR_API_SECRET
 ```
 
-**Never commit your API keys to GitHub.**
+---
 
-## ▶️ Running the Project
+# Running the Project
 
-Run the command-line interface:
+Run the CLI:
 
 ```bash
 python cli.py
 ```
 
-Test the Binance API connection:
+Check Binance connection:
 
 ```bash
 python test_connection.py
 ```
 
-## 📌 Future Improvements
+Debug order placement:
 
-* Web Dashboard
-* Streamlit Interface
-* FastAPI REST API
-* Telegram Bot Integration
-* Trading Strategies
-* Risk Management
-* Docker Support
-* GitHub Actions CI/CD
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
+```bash
+python test_order_debug.py
+```
 
 ---
 
-## 👨‍💻 Author
+# Example Usage
+
+### Example MARKET Order
+
+```text
+Order Type : MARKET
+Symbol     : BTCUSDT
+Side       : BUY
+Quantity   : 0.001
+```
+
+Expected Result:
+
+```text
+Market Order Executed Successfully
+```
+
+---
+
+### Example LIMIT Order
+
+```text
+Order Type : LIMIT
+Symbol     : BTCUSDT
+Side       : SELL
+Quantity   : 0.001
+Price      : 120000
+```
+
+Expected Result:
+
+```text
+Limit Order Submitted Successfully
+```
+
+---
+
+# Assumptions
+
+* The user has a valid Binance account.
+* API keys are configured correctly.
+* Internet connection is available.
+* The trading pair exists on Binance Futures.
+* Sufficient balance is available before placing live orders.
+
+---
+
+# Logging
+
+The project records order activity and errors using Python logging.
+
+The submission includes logs for:
+
+* MARKET order
+* LIMIT order
+
+Example:
+
+```text
+logs/
+├── market_order.log
+└── limit_order.log
+```
+
+---
+
+# Future Improvements
+
+* Stop Loss Orders
+* Take Profit Orders
+* Web Dashboard
+* Strategy Automation
+* Docker Support
+* Unit Tests
+* CI/CD using GitHub Actions
+
+---
+
+# Author
 
 **Anuj Kumar**
 
-* GitHub: https://github.com/anujky843-cyber
-* Email: [anujky843@gmail.com](mailto:anujky843@gmail.com)
+GitHub: https://github.com/anujky843-cyber
